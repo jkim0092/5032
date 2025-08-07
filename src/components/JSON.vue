@@ -11,7 +11,11 @@
       <!-- Activity 6: Render a list containing author names and their birth years. Hint: Make use of the v-for directive to iterate through the array of authors. -->
       <!-- TODO: CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
-        <li v-for="author in authors" :key="author.id">
+        <li
+          v-for="author in authors"
+          :key="author.id"
+          :class="{ highlight: author.name === 'George Orwell' }"
+        >
           {{ author.name }} ({{ author.birthYear }})
         </li>
       </ul>
@@ -158,6 +162,12 @@ const austen = computed(() => {
   background-color: #f4f4f4;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+    color: black;
+  }
 }
 
 h1,
