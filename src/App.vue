@@ -1,18 +1,38 @@
 <script setup>
-import JSONLab from './components/JSON.vue'
-import Form from './components/Form.vue'
 </script>
 
 <template>
+  <header class="site-header">
+    <nav class="nav">
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/WeatherCheck">WeatherCheck</RouterLink>
+    </nav>
+  </header>
+
   <main>
-    <Form />
-    <!-- <JSONLab /> -->
+    <!-- Routed pages render here -->
+    <RouterView />
   </main>
 </template>
 
 <style scoped>
-header {
+.site-header {
   line-height: 1.5;
+  border-bottom: 1px solid #eee;
+  padding: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a.router-link-active {
+  font-weight: 700;
 }
 
 .logo {
@@ -21,7 +41,7 @@ header {
 }
 
 @media (min-width: 1024px) {
-  header {
+  .site-header {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
@@ -29,12 +49,6 @@ header {
 
   .logo {
     margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
   }
 }
 </style>
